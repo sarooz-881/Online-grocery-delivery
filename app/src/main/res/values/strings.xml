@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">Onlinegrocery</string>
+    <string name="app_name">Saroj Online Grocery</string>
+    <string name="drawer_closed">drawer_closed</string>
+    <string name="drawer_open">drawer_open</string>
 </resources>
