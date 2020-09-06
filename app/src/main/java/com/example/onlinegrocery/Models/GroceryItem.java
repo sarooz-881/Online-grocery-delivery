@@ -3,7 +3,8 @@ package com.example.onlinegrocery.Models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import org.meicode.meimall.Utils;
+
+import com.example.onlinegrocery.Utils;
 
 import java.util.ArrayList;
 

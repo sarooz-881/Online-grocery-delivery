@@ -14,8 +14,8 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.onlinegrocery.Models.GroceryItem;
 
-import org.meicode.meimall.Models.GroceryItem;
 
 import java.util.ArrayList;
 

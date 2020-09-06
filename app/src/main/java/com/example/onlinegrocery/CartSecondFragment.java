@@ -18,7 +18,8 @@ import androidx.annotation.Nullable;
 import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 
-import org.meicode.meimall.Models.Order;
+import com.example.onlinegrocery.Models.Order;
+
 
 public class CartSecondFragment extends Fragment {
     private static final String TAG = "CartSecondFragment";

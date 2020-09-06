@@ -12,7 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.meicode.meimall.Models.GroceryItem;
+
+import com.example.onlinegrocery.Models.GroceryItem;
 
 import java.util.ArrayList;
 

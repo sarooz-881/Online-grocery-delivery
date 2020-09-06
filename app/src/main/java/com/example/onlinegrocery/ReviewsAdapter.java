@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.meicode.meimall.Models.Review;
+import com.example.onlinegrocery.Models.Review;
 
 import java.util.ArrayList;
 

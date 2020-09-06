@@ -16,9 +16,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.onlinegrocery.Models.GroceryItem;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import org.meicode.meimall.Models.GroceryItem;
 
 import java.util.ArrayList;
 

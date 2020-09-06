@@ -1,6 +1,6 @@
 package com.example.onlinegrocery;
 
-import org.meicode.meimall.Models.Order;
+import com.example.onlinegrocery.Models.Order;
 
 import retrofit2.Call;
 import retrofit2.http.Body;

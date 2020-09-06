@@ -9,7 +9,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.meicode.meimall.Models.GroceryItem;
+
+import com.example.onlinegrocery.Models.GroceryItem;
 
 import java.util.ArrayList;
 

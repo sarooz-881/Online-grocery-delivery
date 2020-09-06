@@ -17,9 +17,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.onlinegrocery.Models.GroceryItem;
+import com.example.onlinegrocery.Models.Review;
 
-import org.meicode.meimall.Models.GroceryItem;
-import org.meicode.meimall.Models.Review;
 
 import java.util.ArrayList;
 
@@ -94,9 +94,6 @@ public class GroceryItemActivity extends AppCompatActivity implements AddReviewD
         }
     }
 
-    /**
-     * responsible for setting the initial values for views
-     */
     private void setViewsValues () {
         Log.d(TAG, "setViewsValues: started");
         txtName.setText(incomingItem.getName());
@@ -133,7 +130,7 @@ public class GroceryItemActivity extends AppCompatActivity implements AddReviewD
         addReviewRelLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO: show dialog
+                //TODO: showing dialog
 
                 AddReviewDialog addReviewDialog = new AddReviewDialog();
                 Bundle bundle = new Bundle();

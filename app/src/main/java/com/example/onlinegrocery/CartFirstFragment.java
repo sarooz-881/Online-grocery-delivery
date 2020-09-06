@@ -14,8 +14,9 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.meicode.meimall.Models.GroceryItem;
-import org.meicode.meimall.Models.Order;
+
+import com.example.onlinegrocery.Models.GroceryItem;
+import com.example.onlinegrocery.Models.Order;
 
 import java.util.ArrayList;
 
