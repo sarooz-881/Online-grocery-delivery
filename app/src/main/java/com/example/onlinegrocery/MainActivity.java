@@ -1,10 +1,16 @@
 package com.example.onlinegrocery;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -16,6 +22,8 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.navigation.NavigationView;
 
+import static android.hardware.Sensor.TYPE_LIGHT;
+
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private static final String TAG = "MainActivity";
 
@@ -23,11 +31,58 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private NavigationView navigationView;
     private Toolbar toolbar;
 
+
+
+    private SensorManager sensorManager;
+    private Sensor LightSensor;
+    private SensorEventListener lightEventListener;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
 
+        LightSensor = sensorManager.getDefaultSensor(TYPE_LIGHT);
+        if(LightSensor == null){
+            Toast.makeText(this, "The Device has not Light Sensor", Toast.LENGTH_SHORT).show();
+            finish();
+        }
+lightEventListener = new SensorEventListener() {
+    @Override
+    public void onSensorChanged(SensorEvent event) {
+
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+    }
+};
+
+        sensorManager.registerListener(new SensorEventListener() {
+           int orientation = -1;
+            @Override
+            public void onSensorChanged(SensorEvent event) {
+                if(event.values[1]<6.5 && event.values[1]>-6.5){
+                    if(orientation!=1){
+                        Log.d("Sensor", "Landscape");
+                    }
+                    orientation =1;
+
+                } else {
+                    if(orientation!=0){
+                        Log.d("Sensor", "Portrait");
+                    }
+                    orientation=0;
+                }
+            }
+
+            @Override
+            public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+            }
+        }, sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_FASTEST);
         initViews();
 
         setSupportActionBar(toolbar);
@@ -58,7 +113,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                //TODO: show the url
+
                             }
                         });
 
@@ -76,5 +131,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer = (DrawerLayout) findViewById(R.id.drawer);
         navigationView = (NavigationView) findViewById(R.id.navigationDrawer);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        sensorManager.registerListener(lightEventListener, LightSensor, SensorManager.SENSOR_DELAY_FASTEST);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        sensorManager.unregisterListener(lightEventListener);
     }
 }
